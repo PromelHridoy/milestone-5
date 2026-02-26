@@ -1,9 +1,9 @@
-const employee1 = {
-    name: 'John Doe',
-    1: 'desk one',
-    position :'software Engineer',
-    "home-address" : "123 madla"
-}
+// const employee1 = {
+//     name: 'John Doe',
+//     1: 'desk one',
+//     position :'software Engineer',
+//     "home-address" : "123 madla"
+// }
 
 const employee = { 
     name: 'John Doe', 
@@ -20,7 +20,16 @@ const employee = {
     position: 'Software Engineer' 
 };
 
-const value1 = employee1.name;
-const value = employee.name;
+// const value1 = employee1.name;
+// const value = employee.name;
 // console.log(employee.family.mother.age)
-console.log(employee.family?.mother?.age)
+// console.log(employee.family?.mother?.age)
+// const {family : {mother}} = employee;
+// console.log(mother)
+
+const { family: { mother: {name, age } } } = employee;
+// console.log(name, age);
+console.log(name);
+console.log(age);
+
+
