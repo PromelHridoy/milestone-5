@@ -1,0 +1,11 @@
+console.log(2==2)
+console.log(2=='2')//converts the string '2' to number 2 and then compare
+console.log(1==true)
+console.log(0==false)
+console.log('1'==true)
+console.log(false == '0')
+console.log(null == undefined)
+console.log(NaN == NaN)
+console.log([5] == '5')
+console.log({} == {})
+console.log([] == [])
