@@ -1,3 +1,4 @@
+// const { jsx } = require("react/jsx-runtime");
 
 
 
@@ -7,7 +8,25 @@
   .then((json) => console.log(json));
   }
 
+const loadPost = () => {
+    const url = 'https://jsonplaceholder.typicode.com/posts/1/comments';
 
+    fetch(url)
+    .then(res => res.json())
+    // .then((json) => displayPost(json))
+    .then((json) => {
+        console.log(json);
+        displayPost(json);
+    });
+
+};
+
+const displayPost = (posts) => {
+    posts.forEach(posts => {
+        console.log(posts)
+    });
+    // console.log(posts)
+}
 
 // console.log('app');
 
