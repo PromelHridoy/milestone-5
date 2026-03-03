@@ -4,12 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #post-container{
+            background-color: rgb(194, 240, 224);
+            max-width: 1160px;
+            margin:50px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .post-card{
+            background-color: rgb(199, 182, 160);
+            border: 2px solid #ad7474;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 1px gray;
+        }
+        .post-card p{
+            text-align: justify;
+        }
+    </style>
 </head>
 <body>
     <!-- <h2>API JSON</h2>
     <h3>MODHU MODHU</h3> -->
+
+    
+
     <button onclick="loadData()">Load Data</button>
     <button onclick="loadPost()">Load Post</button>
-    <script src="./script.js"></script>
+
+    <div id="post-container">
+        
+    </div>
+
+
+<!-- <ol id="post-container"></ol> -->
+
+    <!-- <script src="./script.js"></script> -->
+     <script src="./posts.js"></script>
 </body>
 </html>
