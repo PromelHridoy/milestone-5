@@ -53,43 +53,56 @@
 
 // console.log(copy); 
 
-const fruits = ["Apple", "Mango"];
-const vegetables = ["Carrot", "Potato"];
+// const fruits = ["Apple", "Mango"];
+// const vegetables = ["Carrot", "Potato"];
 
-const food = [...fruits, ...vegetables];
-// console.log(food);
-const extraFood = ["Egg", ...food, "Milk"];
-// console.log(extraFood);
+// const food = [...fruits, ...vegetables];
+// // console.log(food);
+// const extraFood = ["Egg", ...food, "Milk"];
+// // console.log(extraFood);
 
-// Passing as Arguments
+// // Passing as Arguments
 
-const numbers = [5, 10, 15];
+// const numbers = [5, 10, 15];
 
-function sum(a, b, c) {
-    return a + b + c;
-}
+// function sum(a, b, c) {
+//     return a + b + c;
+// }
 
-// আগের নিয়ম: sum(numbers[0], numbers[1], numbers[2])
-// স্প্রেড অপারেটর:
-console.log(sum(...numbers));
+// // আগের নিয়ম: sum(numbers[0], numbers[1], numbers[2])
+// // স্প্রেড অপারেটর:
+// console.log(sum(...numbers));
 
-function sumAll(...args) {
-    let total = 0;
-    for (const num of args) {
-        total += num;
-    }
-    return total;
-}
+// function sumAll(...args) {
+//     let total = 0;
+//     for (const num of args) {
+//         total += num;
+//     }
+//     return total;
+// }
 
-const manyNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log(sumAll(...manyNumbers)); // আউটপুট: 55
+// const manyNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// console.log(sumAll(...manyNumbers)); // আউটপুট: 55
 
-const name = "ABIR";
-const characters = [...name];
+// const name = "ABIR";
+// const characters = [...name];
 
-console.log(characters);
+// console.log(characters);
 
-const scores = [45, 89, 72, 95, 60];
-const highest = Math.max(...scores);
+// const scores = [45, 89, 72, 95, 60];
+// const highest = Math.max(...scores);
 
-console.log(highest);
+// console.log(highest);
+
+// let arr1 = [1, 2];
+// let arr2 = [3, 4];
+// let combined = [...arr1, ...arr2]
+// console.log(combined)
+// let number = 5;
+// const rounded = Math.round(number);
+// console.log(rounded);
+
+let numbers = [1, 2, 3];
+let [first, second] = numbers;
+console.log(first)
+console.log(second)
