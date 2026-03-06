@@ -150,6 +150,7 @@ console.log(data);
 data.plants.forEach(plant => {
     console.log(plant)
     const div = document.createElement("div");
+    div.className = `card bg-white shadow-sm border-b-2 ${plant.price > 500 ? "border-red-500" : "border-green-500"}`;
     div.innerHTML =`
      <div class="card bg-white shadow-sm">
   <figure>
@@ -167,7 +168,7 @@ data.plants.forEach(plant => {
     <p class="line-clamp-2">${plant.description}</p>
     <div class="badge badge-success">${plant.category}</div>
     <div class="card-actions justify-between items-center">
-        <h2 class="font-bold text-xl text-[#4ade80]">${plant.price}$</h2>
+        <h2 class="font-bold text-xl ${plant.price > 500 ? "text-red-500" : "text-[#4ade80]"} ">${plant.price}$</h2>
       <button onclick="addToCard(${plant.id}, '${plant.name}', ${plant.price})" class="btn btn-primary">Cart</button>
     </div>
   </div>
