@@ -164,7 +164,7 @@ document.getElementById("btn-search").addEventListener("click", () => {
     console.log(searchValue);
 
     fetch("https://openapi.programming-hero.com/api/words/all")
-    .then((res) => res.join())
+    .then((res) => res.json())
     .then((data) => {
         const allWords = data.data;
         console.log(allWords);

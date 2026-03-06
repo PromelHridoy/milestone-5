@@ -1,0 +1,93 @@
+/* style.css */
+
+/* 🌟 Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+h1 {
+    color: #ff6f61;
+    margin-bottom: 20px;
+}
+
+/* 📝 Input and Buttons */
+input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #ff6f61;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #ff6f61;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #e65b50;
+}
+
+/* 🍴 Meal Container */
+#mealContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* 🍽️ Each Meal Card */
+#mealContainer div {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 220px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#mealContainer div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+#mealContainer img {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* 🍳 Details Button inside Card */
+#mealContainer button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* ⚡ Responsive */
+@media screen and (max-width: 600px) {
+    input[type="text"] {
+        width: 70%;
+        margin-bottom: 10px;
+    }
+
+    #mealContainer div {
+        width: 90%;
+    }
+}
