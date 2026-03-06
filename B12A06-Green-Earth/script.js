@@ -10,6 +10,11 @@ const modalCategory = document.getElementById("modalCategory");
 const modalDescription = document.getElementById("modalDescription");
 const modalPrice = document.getElementById("modalPrice");
 const modalTitle = document.getElementById("modalTitle");
+const cardContainer = document.getElementById("card-container");
+const totalPrice = document.getElementById("total-price");
+const emptyCardMessage = document.getElementById("empty-card-message");
+
+let card =[];
 
 
 
@@ -152,7 +157,9 @@ data.plants.forEach(plant => {
       src="${plant.image}"
       alt="${plant.name}"
       title = "${plant.name}"
-      class = "h-48 w-full object-cover onclick="openTreeModal(${plant.id})"
+      onclick="openTreeModal(${plant.id})"
+      class = "h-48 w-full object-cover"
+      
        />
   </figure>
   <div class="card-body">
@@ -161,7 +168,7 @@ data.plants.forEach(plant => {
     <div class="badge badge-success">${plant.category}</div>
     <div class="card-actions justify-between items-center">
         <h2 class="font-bold text-xl text-[#4ade80]">${plant.price}$</h2>
-      <button class="btn btn-primary">Cart</button>
+      <button onclick="addToCard(${plant.id}, '${plant.name}', ${plant.price})" class="btn btn-primary">Cart</button>
     </div>
   </div>
 </div>
@@ -185,5 +192,68 @@ async function openTreeModal(plantId) {
 
     treeDetailsModal.showModal();
  }
-loadTrees()
+
+ 
+
+ function addToCard(id, name, price) {
+    console.log(id, name, price);
+    const existingItem = card.find(item => item.id === id);
+    if(existingItem){
+        existingItem.quantity +=1;
+    }else{
+        card.push({
+        id,
+        name,
+        price,
+        quantity: 1
+    });
+    }
+    
+    updateCard();
+ }
+
+ function updateCard() {
+    cardContainer.innerHTML ="";
+
+    if(card.length === 0) {
+        emptyCardMessage.classList.remove("hidden");
+        totalPrice.textContent = `$${0}`;
+        return
+    }
+
+     emptyCardMessage.classList.add("hidden");
+
+    console.log(card);
+    let total = 0;
+     card.forEach(item => {
+        total += item.price * item.quantity;
+        const cardItem = document.createElement("div");
+        cardItem.className = "card card-body bg-slate-100"
+        cardItem.innerHTML = `
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h2>${item.name}</h2>
+                                <p>$${item.price} x ${item.quantity}</p>
+                            </div>
+                            <button class="btn btn-ghost" onclick="removeFormCard(${item.id})">X</button>
+                        </div>
+                        <p class="text-right font-semibold text-xl">$${item.price * item.quantity}</p>
+                    
+        `;
+        cardContainer.appendChild(cardItem);
+     });
+     totalPrice.innerText = `$${total}`;
+ }
+
+ function removeFormCard(plantId) {
+    console.log(plantId);
+    const updatedElements = card.filter(item => item.id != plantId)
+
+    console.log(updatedElements);
+    card = updatedElements;
+    updateCard();
+    
+ }
+
+ loadTrees()
 loadCategories();
